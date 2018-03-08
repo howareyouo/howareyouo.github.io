@@ -4,15 +4,15 @@
 
 # Site
 title: 逆流而下
-subtitle:
-description:
+subtitle: 逆流而下的个人主页
+description: 逆流而下的个人主页
 author: Backflow
 language: zh-CN
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://howareyouo.github.io/
+url: https://backflow.cn/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
