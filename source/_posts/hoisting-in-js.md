@@ -1,6 +1,6 @@
 ---
 title: "踩坑之JS变量提升(Hoisting)"
-date: 2017-12-11 20:48:46
+date: 2018-2-21 20:48:46
 tags: javascript, 踩坑
 ---
 问题是在我这两天在重构我的[前端管理系统](https://gitee.com/backflow/framework-admin)的上传功能时候遇到的问题，大致要求是：
@@ -68,7 +68,7 @@ WOW...
  - `const`就更好了，它不但全新，还使声明的变量不可修改。
 
 如果不能，需要避免`task`对象从`for`循环中提升，使其拥有自己单独的作用域，联想到前面提到过的js只有`函数作用域`这一特性，因此要为循环中的每个`task`创建自己的`函数作用域`。
-所以做法就是单独创建一个`upload(file)`函数，在新的函数中创建`task`，并在循环中调用它，最终的代码看起来就是这样：
+做法就是单独创建一个`upload(file)`函数，在新的函数中创建`task`，并在循环中调用这个函数，最终的代码看起来就是这样：
 ```javascript
 /* input[type=file]触发了change事件, 执行上传 */
 function filechange (e) {
