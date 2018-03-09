@@ -1,5 +1,5 @@
 ---
-title: You might not need jquery (不用jQuery话代码怎么写)
+title: You might not need jquery (不用jquery话代码怎么写)
 date: 2017-12-24 11:20:03
 tags: javascript
 ---
@@ -11,7 +11,7 @@ tags: javascript
 ```javascript
 $('#id').offset() // {left: 66, top: 666}
 ```
-我想要知道纯js实现这个方法，在[http://youmightnotneedjquery.com](http://youmightnotneedjquery.com)里搜索一下，它就会告诉你可以这样实现`offset`：
+我想要知道纯js如何实现这个方法，在[http://youmightnotneedjquery.com](http://youmightnotneedjquery.com)里搜索一下，它就会告诉你可以这样实现`offset`：
 ```javascript
 var rect = el.getBoundingClientRect();
 {
@@ -19,4 +19,4 @@ var rect = el.getBoundingClientRect();
   left: rect.left + document.body.scrollLeft
 }
 ```
-原来也没怎么复杂嘛，它还会显示浏览的最低支持版本是IE8+，是不是很方便？
+原来也没怎么复杂嘛，它还会显示支持浏览的最低版本是IE8+，是不是很方便？

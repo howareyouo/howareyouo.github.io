@@ -21,14 +21,14 @@ function filechange (e) {
       size: file.size
     }
     queue.unshift(task)     // 插入队伍前端
-    qiniu.upload(file, key, token).subscribe({  // 开始上传
-      next (res) {                              // 监听上传进度
-        task.percent = res.total.percent
+    qiniu.upload(file, key, token).subscribe({  // 开始ajax异步上传
+      next (res) {                              // 上传进度更新回调
+        task.percent = res.total.percent        // 更新每个task的上传进度信息
         task.loaded = res.total.loaded
       },
-      error: (err) => console.log(err),
-      complete (res) {
-        task.complete = true
+      error: (err) => console.log(err),         // 上传错误回调
+      complete (res) {                          // 上传完成回调
+        task.complete = true                    // 标记每个task上传完成
         // post and save to db ...
       }
     })
@@ -36,13 +36,13 @@ function filechange (e) {
   e.target.value = ''   // 清空value的值确保选择相同的文件可以正确触发change事件
 }
 ```
-咋一看代码很正常，相信有的同学根据需求第一时间会写出我这样的代码。如果用相同逻辑写java代码去运行的话是没问题的，但js这么写的话就会出现问题了:
-**程序永远只更新最后一个`unshift()`到队列的`task`的上传进度!**
+咋一看代码很正常，相信有的同学根据需求第一时间会写出我这样的代码。如果用相同逻辑的java代码去运行的话是没问题的，但js这么写的话就有问题了:
+**回调程序永远只更新最后一个`unshift()`到队列的`task`的上传进度!**
 
 <!-- more -->
 
 造成这样的原因有二：
-  - js没有`块级作用域`，只有`函数作用域`。（`for`循环后的花括号里并没有自己的作用域）
+  - `javascript`没有`块级作用域`，只有`函数作用域`。（`for`循环后的花括号里并没有自己的作用域）
   - 变量提升(Hoisting)。(`for`循环里声明的变量会被提升到函数顶部)
 
 实际上就像这样：
@@ -69,7 +69,7 @@ WOW...
  - `let`声明的变量只在当前花括号的`块级作用域`内可见，它使得每次循环声明的`task`都是全新的对象。
  - `const`就更好了，它不但全新，还使声明的变量不可修改。
 
-如果不能，需要避免`task`对象从`for`循环中提升，使其拥有自己单独的作用域，联想到前面提到过的js只有`函数作用域`这一特性，因此要为循环中的每个`task`创建自己的`函数作用域`。
+如果不允许使用ES6，需要避免`task`对象从`for`循环中提升，使其拥有自己单独的作用域，联想到前面提到过的js只有`函数作用域`这一特性，因此要为循环中的每个`task`创建自己的`函数作用域`。
 做法就是单独创建一个`upload(file)`函数，在新的函数中创建`task`，并在循环中调用这个函数，最终的代码看起来就是这样：
 ```javascript
 /* input[type=file]触发了change事件, 执行上传 */
