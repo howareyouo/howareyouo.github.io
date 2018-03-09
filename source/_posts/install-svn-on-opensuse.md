@@ -1,7 +1,8 @@
 ---
 title: SVN安装与配置 (openSUSE-12.3)
 date: 2016-03-19 10:05:31
-tags: linux
+tags: [linux, svn]
+categories: linux
 ---
 ### 方案一： 使用图形化设置工具
 openSUSE集成有图形界面操作环境，安装软件包可以通过管理员设置工具 **YaST** (Yet another Setup Tool，SUSE特有的强大设置工具) ：

@@ -1,7 +1,8 @@
 ---
 title: You might not need jquery (不用jquery话代码怎么写)
 date: 2017-12-24 11:20:03
-tags: javascript
+tags: [javascript, sites]
+categories: sites
 ---
 自从用了`vuejs`之后，对`jquery`越来越抵触了，项目里遇到什么好用的插件都想去掉`jquery`依赖重写一遍...
 

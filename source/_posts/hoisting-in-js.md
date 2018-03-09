@@ -1,7 +1,8 @@
 ---
 title: "踩坑之JS变量提升(Hoisting)"
 date: 2018-2-21 20:48:46
-tags: javascript, 踩坑
+tags: [踩坑, javascript]
+categories: javascript
 ---
 问题是在我这两天在重构我的[前端管理系统](https://gitee.com/backflow/framework-admin)的上传功能时候遇到的问题，大致要求是：
  - 用户选择文件后批量上传到七牛
