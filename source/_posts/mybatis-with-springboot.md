@@ -1,5 +1,5 @@
 # mybatis-spring intergration 
-
+---
 MyBatis与springboot整合的入口, 是通过`@MapperScan`注解, 告诉Spring要扫描并代理的`Mapper`接口
 ```java
 @MapperScan(basePackages = "tk.mybatis.sample.mapper")
@@ -243,5 +243,5 @@ G -. "execute" .-> H(SqlSession)
 H -. "MappedStatement" .-> I(JDBC)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExOTA5MTY2MTZdfQ==
+eyJoaXN0b3J5IjpbMTk5MjM2Nzg5NSwtMTE5MDkxNjYxNl19
 -->
