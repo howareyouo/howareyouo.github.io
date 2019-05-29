@@ -1,5 +1,5 @@
 # ORM框架之Mybatis
-
+---
 ### *Mapper接口
 MyBatis通过`*Mapper interface`定义的方法，找到对应`*Mapper.xml`里的SQL语句, 同时也提供了JPA式的直接在接口方法上定义SQL的注解:
 
@@ -124,5 +124,5 @@ XML的方式 :
 public Person getPersonByProc(Integer id);
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQxNzc3MjY5N119
+eyJoaXN0b3J5IjpbLTE4NDYyODcxOTgsLTQxNzc3MjY5N119
 -->
